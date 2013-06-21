@@ -4,10 +4,10 @@ import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
-public class FPSPanel extends JPanel{
+public class FPSPanel extends JPanel{	
 	public FPSPanel(){
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.add(new JLabel("FPS"));
-		this.add(new JSpinner(new SpinnerNumberModel(1, 1, 60,1)));
+		this.add(new FPSSpinner());
 	}
 }

@@ -10,8 +10,6 @@ public class FramePanel extends JPanel{
 	public FramePanel(){
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.add(new JLabel("Frame #"));
-		spinner = new JSpinner(new SpinnerNumberModel(1, 1, 300,1));
-		this.add(spinner);
-		spinner.addChangeListener(new FrameSpinnerListener());
+		this.add(new FrameSpinner());
 	}
 }

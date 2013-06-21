@@ -5,17 +5,21 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class AnimationPanel extends JPanel{	
+public class AnimationPanel extends JPanel{
+	AnimationFrameManager AniMan = new AnimationFrameManager();
+	Image img;
+		
 	public AnimationPanel(){
 		ComponentRegistry.getRegistry().registerComponent("AnimationPanel", this);
+		img = AniMan.getFrame(1);
 	}
 	
 	public void paintComponent(Graphics g){
-		try {
-		  Image img = ImageIO.read(new File("../Images/image2.bmp"));
 		  g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
-		} catch (IOException e) {
-		  e.printStackTrace();
-		}
+	}
+	
+	public void changeFrame(int frameNumber){
+		img = AniMan.getFrame(frameNumber);
+		this.repaint();
 	}
 }

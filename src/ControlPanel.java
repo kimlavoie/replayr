@@ -10,11 +10,11 @@ public class ControlPanel extends JPanel{
 		this.add(Box.createRigidArea(new Dimension(10,20)));
 		this.add(new FramePanel());
 		this.add(Box.createRigidArea(new Dimension(10,20)));
-		this.add(new JButton("First Frame"));
+		this.add(new FirstFrameButton());
 		this.add(Box.createRigidArea(new Dimension(10,20)));
-		this.add(new JButton("Play"));
+		this.add(new PlayPauseButton());
 		this.add(Box.createRigidArea(new Dimension(10,20)));
-		this.add(new JButton("Last Frame"));
+		this.add(new LastFrameButton());
 		this.add(Box.createRigidArea(new Dimension(10,20)));
 		this.add(new FPSPanel());
 		this.add(Box.createRigidArea(new Dimension(10,20)));
