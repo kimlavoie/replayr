@@ -2,7 +2,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 public class FPSSpinner extends JSpinner{
-	private int start = 1;
+	private int start = 30;
 	private int minimum = 1;
 	private int maximum = 60;
 	

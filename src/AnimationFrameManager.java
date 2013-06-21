@@ -42,7 +42,6 @@ public class AnimationFrameManager{
 		for(File file: files){
 			try{
 				frameList.add(ImageIO.read(file));
-				System.out.println(file.getName());
 			} catch (Exception e){
 				
 			}
@@ -51,5 +50,9 @@ public class AnimationFrameManager{
 	
 	public Image getFrame(int index){
 		return frameList.get(index);
+	}
+	
+	public int getNumberOfFrame(){
+		return frameList.size();
 	}
 }

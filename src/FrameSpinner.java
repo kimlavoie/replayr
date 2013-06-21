@@ -11,6 +11,8 @@ public class FrameSpinner extends JSpinner implements ChangeListener{
 	
 	public FrameSpinner(){
 		ComponentRegistry.getRegistry().registerComponent("FrameSpinner", this);
+		AnimationPanel animationPanel = (AnimationPanel) ComponentRegistry.getRegistry().getComponent("AnimationPanel");
+		maximum = animationPanel.getNumberOfFrame();
 		this.setModel(new SpinnerNumberModel(start, minimum, maximum, 1));
 		this.addChangeListener(this);
 	}
@@ -21,5 +23,8 @@ public class FrameSpinner extends JSpinner implements ChangeListener{
 	public void stateChanged(ChangeEvent e){
 		AnimationPanel animationPanel = (AnimationPanel) ComponentRegistry.getRegistry().getComponent("AnimationPanel");
 		animationPanel.changeFrame((Integer) this.getValue());
+		
+		XMLPanel XPanel = (XMLPanel) ComponentRegistry.getRegistry().getComponent("XMLPanel");
+		XPanel.changeXML((Integer) this.getValue());
 	}
 }
