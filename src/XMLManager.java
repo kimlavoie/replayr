@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class XMLManager{
 	private ArrayList<String> XMLList = new ArrayList<String>();
-	private final String DIRECTORY_PATH = "../XML";
+	private final String DIRECTORY_PATH = "../../XML";
 	
 	public XMLManager(){
 		loadXMLList();

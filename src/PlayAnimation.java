@@ -2,12 +2,16 @@ import java.awt.event.ActionEvent;
 
 public class PlayAnimation implements Runnable{
 	public void run(){
-		FrameSpinner spinner = (FrameSpinner) ComponentRegistry.getRegistry().getComponent("FrameSpinner");
-		while((Integer) spinner.getValue() < spinner.getMax()){
-			//TODO Take account of the FPS in FPSSpinner
-			spinner.setValue(((Integer) spinner.getValue()) + 1);
+		FrameSpinner frameSpinner = (FrameSpinner) ComponentRegistry.getRegistry().getComponent("FrameSpinner");
+		FPSSpinner fpsSpinner = (FPSSpinner) ComponentRegistry.getRegistry().getComponent("FPSSpinner");
+		long timeBefore = System.currentTimeMillis();
+		while((Integer) frameSpinner.getValue() < frameSpinner.getMax()){
+			long timeAfter = System.currentTimeMillis();
+			if( (timeAfter - timeBefore) >= (1000 / ((Integer)fpsSpinner.getValue()) ) ){
+				frameSpinner.setValue(((Integer) frameSpinner.getValue()) + 1);
+				timeBefore = System.currentTimeMillis();
+			}
 		}
-		System.out.println("Finished");
 		PlayPauseButton button = (PlayPauseButton) ComponentRegistry.getRegistry().getComponent("PlayPauseButton");
 		button.animationFinished();
 	}
