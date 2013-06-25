@@ -42,11 +42,14 @@ public class Unzip
     	ZipEntry ze = zis.getNextEntry();
  
     	while(ze!=null){
- 
+			if(ze.isDirectory()){
+				ze = zis.getNextEntry();
+				continue;
+			}
     	   String fileName = ze.getName();
            File newFile = new File(outputFolder + File.separator + fileName);
  
-           System.out.println("file unzip : "+ newFile.getAbsoluteFile());
+           //System.out.println("file unzip : "+ newFile.getAbsoluteFile());
  
             //create all non exists folders
             //else you will hit FileNotFoundException for compressed folder
@@ -66,7 +69,7 @@ public class Unzip
         zis.closeEntry();
     	zis.close();
  
-    	System.out.println("Done");
+    	//System.out.println("Done");
  
     }catch(IOException ex){
        ex.printStackTrace(); 

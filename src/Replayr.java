@@ -1,7 +1,12 @@
 public class Replayr{
 	public static void main(String argv[]){
 		Unzip unZip = new Unzip();
-		unZip.unZip(argv[0], ".tmp");
+		if(argv.length > 0){
+			unZip.unZip(argv[0], ".tmp");
+		}
+		else{
+			unZip.unZip("ressources.zip", ".tmp");
+		}
 		MainWindow mainWindow = new MainWindow();
 		Folder.delete(".tmp");
 	}
