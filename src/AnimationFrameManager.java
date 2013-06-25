@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 public class AnimationFrameManager{
 	private ArrayList<Image> frameList = new ArrayList<Image>();
-	private final String DIRECTORY_PATH = "../../Images";
+	private final String DIRECTORY_PATH = ".tmp/Images";
 	
 	public AnimationFrameManager(){
 		loadFrameList();
