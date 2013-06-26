@@ -15,10 +15,10 @@ public class XMLPanel extends JScrollPane{
 		caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 		this.setPreferredSize(new Dimension(100, 300));
 		this.getViewport().add(text);
-		text.setText(XMan.getXMLString(0));
+		text.setText(XMan.loadXML(1));
 	}
 	
 	public void changeXML(int frame){
-		text.setText(XMan.getXMLString(frame - 1));
+		text.setText(XMan.loadXML(frame));
 	}
 }

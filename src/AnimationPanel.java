@@ -11,7 +11,7 @@ public class AnimationPanel extends JPanel{
 		
 	public AnimationPanel(){
 		ComponentRegistry.getRegistry().registerComponent("AnimationPanel", this);
-		img = AniMan.getFrame(0);
+		img = AniMan.loadFrame(1);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -19,7 +19,7 @@ public class AnimationPanel extends JPanel{
 	}
 	
 	public void changeFrame(int frameNumber){
-		img = AniMan.getFrame(frameNumber - 1);
+		img = AniMan.loadFrame(frameNumber);
 		this.repaint();
 	}
 	

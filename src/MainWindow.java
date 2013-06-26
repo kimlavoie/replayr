@@ -9,4 +9,8 @@ public class MainWindow extends JFrame{
 		this.setContentPane(new MainPanel());
 		this.setVisible(true);
 	}
+	
+	public void finalize(){
+		Folder.delete(".tmp");
+	}
 }

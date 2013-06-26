@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 public class PlayPauseButton extends JButton implements ActionListener{
 	private boolean stateIsPause = true;
 	Thread animationThread;
+	PlayAnimation animation;
 	
 	public PlayPauseButton(){
 		ComponentRegistry.getRegistry().registerComponent("PlayPauseButton", this);
@@ -13,7 +14,7 @@ public class PlayPauseButton extends JButton implements ActionListener{
 	}
 	
 	public void animationFinished(){
-		animationThread.interrupt();
+		animation.stopAnimation();
 		this.setText("Play");
 		stateIsPause = true;
 	}
@@ -23,13 +24,14 @@ public class PlayPauseButton extends JButton implements ActionListener{
 		if(stateIsPause){
 			this.setText("Pause");
 			stateIsPause = false;
-			animationThread = new Thread(new PlayAnimation());
+			animation = new PlayAnimation();
+			animationThread = new Thread(animation);
 			animationThread.start();
 		}
 		else{
 			this.setText("Play");
 			stateIsPause = true;
-			animationThread.interrupt();
+			animation.stopAnimation();
 		}
 	}
 }

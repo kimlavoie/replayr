@@ -8,6 +8,6 @@ public class Replayr{
 			unZip.unZip("ressources.zip", ".tmp");
 		}
 		MainWindow mainWindow = new MainWindow();
-		Folder.delete(".tmp");
+		
 	}
 }
