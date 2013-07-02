@@ -7,17 +7,17 @@ public class PlayAnimation implements Runnable{
 		FrameSpinner frameSpinner = (FrameSpinner) ComponentRegistry.getRegistry().getComponent("FrameSpinner");
 		FPSSpinner fpsSpinner = (FPSSpinner) ComponentRegistry.getRegistry().getComponent("FPSSpinner");
 		animate = true;
-		long timeBefore = System.currentTimeMillis();
+		double timeBefore = System.currentTimeMillis();
 		while((Integer) frameSpinner.getValue() < frameSpinner.getMax() && animate){
-			long timeAfter = System.currentTimeMillis();
-			long delta = timeAfter - timeBefore - (1000 / ((Integer)fpsSpinner.getValue()));
+			double timeAfter = System.currentTimeMillis();
+			double delta = timeAfter - timeBefore - (1000.0 / (double)((Integer)fpsSpinner.getValue()));
 			if( delta > 0 ){
+                timeBefore = System.currentTimeMillis() - delta;
 				frameSpinner.setValue(((Integer) frameSpinner.getValue()) + 1);
-				timeBefore = System.currentTimeMillis() - delta;
 			}
             else{
                 try{
-                    Thread.sleep(-delta);
+                    Thread.sleep((int) -delta);
                 } catch (Exception e){
                     e.printStackTrace();
                 }
