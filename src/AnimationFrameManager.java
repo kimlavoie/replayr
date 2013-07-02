@@ -13,6 +13,13 @@ public class AnimationFrameManager{
 	
 	public Image loadFrame(int frame){
 		File file = new File(DIRECTORY_PATH + "/" + String.valueOf(frame) + ".bmp");
+		if(!file.exists()){
+			file = new File(DIRECTORY_PATH + "/" + String.valueOf(frame) + ".jpg");
+			if(!file.exists()){
+				file = new File(DIRECTORY_PATH + "/" + String.valueOf(frame) + ".png");
+			}
+		}
+		
 			
 		try{
 			currentImage = ImageIO.read(file);

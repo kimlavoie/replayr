@@ -6,9 +6,15 @@ neutre='\e[0;m'
 # if parameter 1 exists, get the folders to the directory in parameter 1
 # else, assume current directory
 if [[ -n $1 && -d ${1}/Images && -d ${1}/XML ]]; then
-	zip -r ressources.zip ${1}/Images ${1}/XML > /dev/null
+	echo "Saving Images files"
+	zip -r ressources.zip ${1}/Images > /dev/null
+	echo "Saving XML files"
+	zip -r ressources.zip ${1}/XML > /dev/null
 elif [[ -z $1 && -d Images && -d XML ]]; then
-	zip -r ressources.zip Images XML > /dev/null
+	echo "Saving Images files"
+	zip -r ressources.zip Images > /dev/null
+	echo "Saving XML files"
+	zip -r ressources.zip XML > /dev/null
 else
 	echo -e "${rouge}Something went wrong. Verify that the directories exists, then try again.${neutre}"
 fi

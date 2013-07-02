@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 public class FirstFrameButton extends JButton implements ActionListener{
 	public FirstFrameButton(){
 		this.setText("First frame");
+		this.setMnemonic('f');
 		this.addActionListener(this);
 	}
 	

@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 public class LastFrameButton extends JButton implements ActionListener{
 	public LastFrameButton(){
 		this.setText("Last frame");
+		this.setMnemonic('l');
 		this.addActionListener(this);
 	}
 	

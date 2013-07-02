@@ -10,6 +10,7 @@ public class PlayPauseButton extends JButton implements ActionListener{
 	public PlayPauseButton(){
 		ComponentRegistry.getRegistry().registerComponent("PlayPauseButton", this);
 		this.setText("Play");
+		this.setMnemonic('p');
 		this.addActionListener(this);
 	}
 	
@@ -20,7 +21,6 @@ public class PlayPauseButton extends JButton implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e){
-		// TODO
 		if(stateIsPause){
 			this.setText("Pause");
 			stateIsPause = false;
@@ -33,5 +33,9 @@ public class PlayPauseButton extends JButton implements ActionListener{
 			stateIsPause = true;
 			animation.stopAnimation();
 		}
+	}
+	
+	public void finalize(){
+		animation.stopAnimation();
 	}
 }
