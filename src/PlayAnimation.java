@@ -15,6 +15,13 @@ public class PlayAnimation implements Runnable{
 				frameSpinner.setValue(((Integer) frameSpinner.getValue()) + 1);
 				timeBefore = System.currentTimeMillis() - delta;
 			}
+            else{
+                try{
+                    Thread.sleep(-delta);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
 		}
 		PlayPauseButton button = (PlayPauseButton) ComponentRegistry.getRegistry().getComponent("PlayPauseButton");
 		button.animationFinished();
